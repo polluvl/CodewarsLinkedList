@@ -14,14 +14,17 @@ def stringify(node):
         outp.append('None')
     return ' -> '.join(outp)
 
+
 def linked_list_from_string(s):
+    if s == 'None':
+        return None
     spl = s.split(' -> ')
     nodes = []
-    for i in spl:
-        nodes.append(i)
+    for i in spl[:-1]:
+        nodes.append(int(i))
     head = Node(nodes[0])
     temp = head
-    for k in nodes[1:-1]:
+    for k in nodes[1:]:
         temp.next = Node(k)
         temp = temp.next
     return head
